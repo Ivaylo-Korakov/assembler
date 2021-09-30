@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: localhost pop-os
   connection: local
   become: true
 
