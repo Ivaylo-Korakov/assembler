@@ -15,3 +15,4 @@
 - import_tasks: software/google-chrome.yml
 - import_tasks: software/docker.yml
 - import_tasks: software/dkr-compose.yml
+- import_tasks: software/vs-code.yml
