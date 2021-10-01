@@ -1,12 +1,13 @@
 
 # Install software
+- import_tasks: software/pip3.yml
 - import_tasks: software/curl.yml
 - import_tasks: software/ansible.yml
 - import_tasks: software/vim.yml
 - import_tasks: software/htop.yml
 - import_tasks: software/virtualenv.yml
-- import_tasks: software/pip3.yml
 - import_tasks: software/zsh.yml
+- import_tasks: software/guake.yml
 - import_tasks: software/snapd.yml
 - import_tasks: software/authy.yml
 - import_tasks: software/signal.yml
