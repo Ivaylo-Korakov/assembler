@@ -1,0 +1,13 @@
+- name: base | software | zsh
+  become: yes
+  package:
+    name: zsh
+
+- name: base | software | zsh | set default
+  user: 
+    name: ivo
+    shell: /usr/bin/zsh
+  
+- name: oh-my-zsh
+  ignore_errors: yes
+  action: shell bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

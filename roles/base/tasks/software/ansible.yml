@@ -1,0 +1,7 @@
+- name: base | software | ansible
+  package:
+    name: ansible
+
+- name: base | software | ansible-lint
+  package:
+    name: ansible-lint
