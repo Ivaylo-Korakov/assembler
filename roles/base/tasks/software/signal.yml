@@ -1,0 +1,14 @@
+- name: base | software | signal | install package
+  become_user: ivo
+  flatpak:
+    name: org.signal.Signal
+    method: user
+    state: present
+
+- name: base | software | signal | enable autostart
+  file:
+    src: /home/ivo/.local/share/flatpak/exports/share/applications/org.signal.Signal.desktop
+    dest: /home/ivo/.config/autostart/org.signal.Signal.desktop
+    owner: ivo
+    group: ivo
+    state: link

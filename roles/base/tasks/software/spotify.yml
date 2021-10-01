@@ -1,0 +1,6 @@
+- name: base | software | spotify | install package
+  become_user: ivo
+  flatpak:
+    name: com.spotify.Client
+    method: user
+    state: present

@@ -1,0 +1,6 @@
+- name: base | software | vlc | install package
+  become_user: ivo
+  flatpak:
+    name: org.videolan.VLC
+    method: user
+    state: present
