@@ -11,3 +11,8 @@
 - name: oh-my-zsh
   ignore_errors: yes
   action: shell bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+- name: base | software | powerlevel10k | git
+  become_user: ivo
+  ansible.builtin.shell: git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
