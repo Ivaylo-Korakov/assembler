@@ -1,0 +1,19 @@
+# Tasks to complete before running roles
+- hosts: all
+  tags: always
+  become: true
+  pre_tasks:
+    - name: pre-run | update package cache (debian, etc)
+      # debug:
+      #   var: ansible_distribution
+      tags: always
+      apt: update_cache=yes
+      changed_when: False
+      when: ansible_distribution in ["Debian", "Ubuntu", "Pop-os"]
+
+# run roles
+- hosts: all
+  tags: base
+  become: true
+  roles:
+    - base

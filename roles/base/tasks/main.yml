@@ -1,0 +1,4 @@
+
+# Install software
+- import_tasks: software/vim.yml
+- import_tasks: software/htop.yml
