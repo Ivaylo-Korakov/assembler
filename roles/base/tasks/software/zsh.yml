@@ -1,18 +1,39 @@
 - name: base | software | zsh
+  become_user: ivo
   become: yes
   package:
     name: zsh
 
 - name: base | software | zsh | set default
+  become_user: ivo
   user: 
     name: ivo
     shell: /usr/bin/zsh
   
-- name: oh-my-zsh
+- name: base | software | zsh | oh-my-zsh
   ignore_errors: yes
-  action: shell bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  become_user: ivo
+  ansible.builtin.shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-- name: base | software | powerlevel10k | git
+- name: base | software | zsh | powerlevel10k | git
+  ignore_errors: yes
   become_user: ivo
   ansible.builtin.shell: git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
+- name: base | software | zsh | .zshrc file
+  become_user: ivo
+  ansible.builtin.copy:
+    src: files/.zshrc
+    dest: ~/.zshrc
+    owner: ivo
+    group: ivo
+    mode: '0600'
+  
+- name: base | software | zsh | .p10k.zsh file
+  become_user: ivo
+  ansible.builtin.copy:
+    src: files/.p10k.zsh
+    dest: ~/.p10k.zsh
+    owner: ivo
+    group: ivo
+    mode: '0600'
