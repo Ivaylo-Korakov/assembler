@@ -14,3 +14,4 @@
 - import_tasks: software/vlc.yml
 - import_tasks: software/google-chrome.yml
 - import_tasks: software/docker.yml
+- import_tasks: software/dkr-compose.yml
