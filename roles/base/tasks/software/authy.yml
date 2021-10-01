@@ -1,0 +1,19 @@
+- name: base | software | authy | install package
+  become_user: ivo
+  snap:
+    name:  authy
+    channel: latest/edge
+    state: present
+  when:
+    - ansible_distribution != "Archlinux"
+
+- name: base | software | authy | enable autostart
+  become_user: root
+  file:
+    src: /var/lib/snapd/desktop/applications/authy_authy.desktop
+    dest: /home/ivo/.config/autostart/authy.desktop
+    owner: ivo
+    group: ivo
+    state: link
+  when:
+    - ansible_distribution != "Archlinux"

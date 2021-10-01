@@ -1,0 +1,11 @@
+- name: base | software | snapd
+  package:
+    name: snapd
+    state: latest
+  when: ansible_distribution != "Archlinux"
+
+- name: base | software | snapd | install/update core snap
+  snap:
+    name:  core
+    state: present
+  when: ansible_distribution != "Archlinux"

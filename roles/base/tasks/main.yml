@@ -6,3 +6,5 @@
 - import_tasks: software/htop.yml
 - import_tasks: software/pip3.yml
 - import_tasks: software/zsh.yml
+- import_tasks: software/snapd.yml
+- import_tasks: software/authy.yml
