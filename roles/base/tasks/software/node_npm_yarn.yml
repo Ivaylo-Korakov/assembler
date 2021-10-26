@@ -1,0 +1,10 @@
+- name: base | software | nodejs
+  package:
+    name: nodejs
+
+- name: base | software | npm
+  package:
+    name: npm
+
+- name: base | software | yarn
+  ansible.builtin.shell: npm install --global yarn

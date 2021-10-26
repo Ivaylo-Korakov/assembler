@@ -6,6 +6,7 @@
 - import_tasks: software/vim.yml
 - import_tasks: software/htop.yml
 - import_tasks: software/tig.yml
+- import_tasks: software/node_npm_yarn.yml
 - import_tasks: software/virtualenv.yml
 - import_tasks: software/zsh.yml
 - import_tasks: software/guake.yml
