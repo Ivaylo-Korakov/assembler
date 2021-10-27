@@ -85,6 +85,13 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# VIRTUAL ENV WRAPPER
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/dev
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv
+source /usr/local/bin/virtualenvwrapper.sh
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

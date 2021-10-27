@@ -1,3 +1,7 @@
 - name: base | software | virtualenv
   package:
     name: virtualenv
+
+- name: base | software | virtualenv wrapper pip
+  pip:
+    name: virtualenvwrapper
