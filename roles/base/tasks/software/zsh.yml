@@ -20,6 +20,15 @@
   become_user: ivo
   ansible.builtin.shell: git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
+- name: base | software | zsh | .zshrc_custom file
+  become_user: ivo
+  ansible.builtin.copy:
+    src: files/.zshrc_custom
+    dest: ~/.zshrc_custom
+    owner: ivo
+    group: users
+    mode: '0600'
+
 - name: base | software | zsh | .zshrc file
   become_user: ivo
   ansible.builtin.copy:

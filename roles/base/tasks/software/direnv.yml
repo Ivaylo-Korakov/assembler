@@ -1,3 +1,12 @@
 - name: base | software | direnv
   package:
     name: direnv
+
+- name: base | software | direnv | .direnvrc file
+  become_user: ivo
+  ansible.builtin.copy:
+    src: files/.direnvrc
+    dest: ~/.direnvrc
+    owner: ivo
+    group: users
+    mode: '0600'

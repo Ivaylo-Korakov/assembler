@@ -1,3 +1,12 @@
 - name: base | software | vim
   package:
     name: vim
+
+- name: base | software | vim | .vimrc file
+  become_user: ivo
+  ansible.builtin.copy:
+    src: files/.vimrc
+    dest: ~/.vimrc
+    owner: ivo
+    group: users
+    mode: '0600'
