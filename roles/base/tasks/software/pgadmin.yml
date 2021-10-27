@@ -1,0 +1,15 @@
+  
+- name: base | software | pgadmin | PPA key
+  ignore_errors: yes
+  become_user: ivo
+  ansible.builtin.shell: curl https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo apt-key add
+
+- name: base | software | pgadmin | add PPA and apt update
+  ignore_errors: yes
+  become_user: ivo
+  ansible.builtin.shell: sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
+
+- name: base | software | pgadmin
+  become: yes
+  package:
+    name: pgadmin4
