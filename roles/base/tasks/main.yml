@@ -7,16 +7,16 @@
 - import_tasks: software/htop.yml
 - import_tasks: software/tig.yml
 - import_tasks: software/direnv.yml
-# - import_tasks: software/node_npm_yarn.yml
-# - import_tasks: software/virtualenv.yml
+- import_tasks: software/node_npm_yarn.yml
+- import_tasks: software/virtualenv.yml
 - import_tasks: software/zsh.yml
-# - import_tasks: software/guake.yml
-# - import_tasks: software/snapd.yml
-# - import_tasks: software/authy.yml
-# - import_tasks: software/signal.yml
-# - import_tasks: software/spotify.yml
-# - import_tasks: software/vlc.yml
-# - import_tasks: software/google-chrome.yml
-# - import_tasks: software/docker.yml
-# - import_tasks: software/dkr-compose.yml
-# - import_tasks: software/vs-code.yml
+- import_tasks: software/guake.yml
+- import_tasks: software/snapd.yml
+- import_tasks: software/authy.yml
+- import_tasks: software/signal.yml
+- import_tasks: software/spotify.yml
+- import_tasks: software/vlc.yml
+- import_tasks: software/google-chrome.yml
+- import_tasks: software/docker.yml
+- import_tasks: software/dkr-compose.yml
+- import_tasks: software/vs-code.yml
