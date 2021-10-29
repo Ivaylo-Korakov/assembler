@@ -1,0 +1,22 @@
+- name: gnome | appearance | copy wallpaper file
+  tags: gnome,gnome-wallpaper
+  copy:
+    src: files/wallpaper.jpg
+    dest: /usr/share/backgrounds/wallpaper.jpg
+    owner: root
+    group: root
+    mode: 0644
+
+- name: gnome | appearance | set wallpaper
+  tags: gnome,gnome-wallpaper
+  become_user: ivo
+  dconf:
+    key: "/org/gnome/desktop/background/picture-uri"
+    value: "'file:///usr/share/backgrounds/wallpaper.jpg'"
+
+- name: gnome | appearance | set wallpaper position
+  tags: gnome,gnome-wallpaper
+  become_user: ivo
+  dconf:
+    key: "/org/gnome/desktop/background/picture-options"
+    value: "'zoom'"

@@ -1,4 +1,7 @@
 
+# Fix gnome desktop env
+- import_tasks: gnome/appearance.yml
+
 # Install software
 - import_tasks: software/pip3.yml
 - import_tasks: software/curl.yml
