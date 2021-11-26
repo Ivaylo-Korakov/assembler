@@ -1,3 +1,12 @@
+# PLUGINS
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+plugins=(git kubectl)
+# Syntax highlighting
+source /home/ivo/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# zsh-autosuggestions
+source /home/ivo/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # VIRTUAL ENV WRAPPER
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev
@@ -7,3 +16,43 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # DIR ENV LINK WITH SHELL
 emulate zsh -c "$(direnv hook zsh)"
+
+# YARN GLOBAL BINDINGS
+export PATH="$PATH:$(yarn global bin)"
+
+# Cheats - pip3 install cheat
+export CHEAT_USER_DIR=/home/ivaylo/dev/cheats
+export CHEAT_COLORS=true
+export CHEAT_COLORSCHEME=dark
+
+# GENERAL SHORTCUTS
+alias kill='killall -KILL $1'
+alias ku='kubectl'
+alias cdd='cd ~/dev'
+alias cdn='cd /etc/nginx'
+alias cdown="cd ~/Downloads"
+# DISK HELP
+alias disk="ncdu -x /"
+alias disk_here="ncdu"
+
+# KUMINA 
+alias cdk='cd ~/kumina/src'
+# Pip for Kumina
+export PIP_EXTRA_INDEX_URL=https://pypi.kumina.net/simple/
+
+# SSH + SSH ALIASES
+alias sshb='ssh ivaylo@blaze-laptop-server'
+alias sshg='ssh ivaylo@findivaylo.xyz'
+alias sshs='ssh root@163.172.165.97'
+alias sshr="ssh root@51.158.176.0"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# MySQL
+mysql_user_login () {
+    if [ -z "$1" ]; then
+        echo "No user supplied! Logging you in with '$USER'"
+        mysql -u $USER -p
+    else
+        mysql -u $1 -p
+    fi
+}

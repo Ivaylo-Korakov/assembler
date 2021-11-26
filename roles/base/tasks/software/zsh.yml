@@ -15,10 +15,20 @@
   become_user: ivo
   ansible.builtin.shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-- name: base | software | zsh | powerlevel10k | git
+- name: base | software | zsh | theme | powerlevel10k | git
   ignore_errors: yes
   become_user: ivo
   ansible.builtin.shell: git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+- name: base | software | zsh | plugin | zsh-autosuggestion | git
+  ignore_errors: yes
+  become_user: ivo
+  ansible.builtin.shell: git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+- name: base | software | zsh | plugin | zsh-syntax-highlighting | git
+  ignore_errors: yes
+  become_user: ivo
+  ansible.builtin.shell: git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 - name: base | software | zsh | .zshrc_custom file
   become_user: ivo
@@ -38,7 +48,7 @@
     group: users
     mode: '0600'
   
-- name: base | software | zsh | .p10k.zsh file
+- name: base | software | zsh | theme |.p10k.zsh file
   become_user: ivo
   ansible.builtin.copy:
     src: files/.p10k.zsh

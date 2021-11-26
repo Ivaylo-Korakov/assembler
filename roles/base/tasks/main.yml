@@ -13,8 +13,10 @@
 - import_tasks: software/node_npm_yarn.yml
 - import_tasks: software/virtualenv.yml
 - import_tasks: software/zsh.yml
+
 # NOT FOR NOW - I DON"T REALLY LIKE IT
 # - import_tasks: software/pgadmin.yml
+
 - import_tasks: software/guake.yml
 - import_tasks: software/snapd.yml
 - import_tasks: software/authy.yml
