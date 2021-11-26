@@ -1,7 +1,4 @@
-# PLUGINS
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(git kubectl)
+# CUSTOM PLUGINS
 # Syntax highlighting
 source /home/ivo/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # zsh-autosuggestions
