@@ -1,0 +1,119 @@
+# Aliases
+alias kill='killall -KILL $1'
+alias ku='kubectl'
+
+# cd something
+alias cdc='cd ~/coosto'
+alias cdk='cd ~/kumina/src'
+alias cdd='cd ~/dev'
+alias cdn='cd /etc/nginx'
+alias cdown="cd ~/Downloads"
+alias minecraft="java -jar ~/Downloads/FTB_Launcher.jar"
+
+# Cheats - pip3 install cheat
+export CHEAT_USER_DIR=/home/ivaylo/dev/cheats
+export CHEAT_COLORS=true
+export CHEAT_COLORSCHEME=dark
+
+# Protobuf - google data - grpc
+export PATH="$PATH:$HOME/.local/bin"
+
+# YARN GLOBAL BINDINGS
+export PATH="$PATH:$(yarn global bin)"
+
+# Pip for Kumina
+export PIP_EXTRA_INDEX_URL=https://pypi.kumina.net/simple/
+
+# SSH + ssh aliases
+alias sshr='ssh ivaylo@ravioli.wise-guys.nl'
+# alias sshd='ssh ivaylo@deepsea70.wise-guys.nl' | server with broken hard disk :D 
+alias sshd='ssh ivaylo@deepsea69.wise-guys.nl'
+alias sshc='ssh cstspdr@deepsea69.wise-guys.nl'
+alias sshb='ssh ivaylo@blaze-laptop-server'
+alias sshg='ssh ivaylo@findivaylo.xyz'
+alias sshs='ssh root@163.172.165.97'
+alias sshdns="ssh nsmaster1b.prod.services.kumina.kumina.net"
+alias sshredstone="ssh root@51.158.176.0"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# Go Lang
+export GOROOT=/usr/local/go
+# export GOPATH=/home/ivaylo/dev/go
+export GOPATH=/home/ivaylo/kumina/src/go
+export GO111MODULE=on
+export PATH=$GOROOT/bin:$PATH # Normal
+export PATH=/home/ivaylo/kumina/src/go/bin:$PATH # Kumina
+
+# DISK HELP
+alias disk="ncdu -x /"
+alias disk_here="ncdu"
+
+
+# For kubernetes autocomplete 
+# kubectl () {
+#     command kubectl $*
+#     if [[ -z $KUBECTL_COMPLETE ]]
+#     then
+#         source <(command kubectl completion zsh)
+#         KUBECTL_COMPLETE=1 
+#     fi
+# }
+
+# MySQL
+mysql_user_login () {
+    if [ -z "$1" ]; then
+        echo "No user supplied! Logging you in with '$USER'"
+        mysql -u $USER -p
+    else
+        mysql -u $1 -p
+    fi
+}
+# alias mysql='mysql_user_login'
+
+# Plugins | more = slow
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+plugins=(
+    kubectl
+)
+
+# Dev config paths
+export DEV_CONFIG=/home/ivaylo/dev/dev.conf
+
+# Less for zips
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# Pip config location
+export PIP_CONFIG_FILE=/home/ivaylo/.config/pip/pip.conf
+
+# This is for python virtual envs
+VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3' # This needs to be placed before the virtualenvwrapper command
+source /home/ivaylo/.local/bin/virtualenvwrapper.sh
+
+unset SSH_AGENT_PID
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/ivaylo/Downloads/google-cloud-sdk-228.0.0-linux-x86_64/google-cloud-sdk/path.zsh.inc' ]; then . '/home/ivaylo/Downloads/google-cloud-sdk-228.0.0-linux-x86_64/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/ivaylo/Downloads/google-cloud-sdk-228.0.0-linux-x86_64/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/ivaylo/Downloads/google-cloud-sdk-228.0.0-linux-x86_64/google-cloud-sdk/completion.zsh.inc'; fi
+
+# K for git and nice file print
+source /home/ivaylo/.oh-my-zsh/custom/plugins/k/k.sh
+
+source $ZSH/oh-my-zsh.sh
+
+alias ll='k -h'
+alias l='k -Ah'
+
+# Syntax highlighting
+source /home/ivaylo/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# zsh-autosuggestions
+source /home/ivaylo/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# eval for direnv
+eval "$(direnv hook zsh)"
