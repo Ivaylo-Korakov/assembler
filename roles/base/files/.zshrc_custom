@@ -28,6 +28,7 @@ alias ku='kubectl'
 alias cdd='cd ~/dev'
 alias cdn='cd /etc/nginx'
 alias cdown="cd ~/Downloads"
+alias fo="xdg-open"
 # DISK HELP
 alias disk="ncdu -x /"
 alias disk_here="ncdu"
