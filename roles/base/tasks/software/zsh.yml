@@ -4,11 +4,11 @@
   package:
     name: zsh
 
-- name: base | software | zsh | set default
-  become_user: ivo
-  user: 
-    name: ivo
-    shell: /usr/bin/zsh
+# - name: base | software | zsh | set default
+#   become_user: ivo
+#   user: 
+#     name: ivo
+#     shell: /usr/bin/zsh
   
 - name: base | software | zsh | oh-my-zsh
   ignore_errors: yes
@@ -36,7 +36,7 @@
     src: files/.zshrc_custom
     dest: ~/.zshrc_custom
     owner: ivo
-    group: users
+    group: ivo
     mode: '0600'
 
 - name: base | software | zsh | .zshrc file
@@ -45,7 +45,7 @@
     src: files/.zshrc
     dest: ~/.zshrc
     owner: ivo
-    group: users
+    group: ivo
     mode: '0600'
   
 - name: base | software | zsh | theme |.p10k.zsh file
@@ -54,5 +54,5 @@
     src: files/.p10k.zsh
     dest: ~/.p10k.zsh
     owner: ivo
-    group: users
+    group: ivo
     mode: '0600'

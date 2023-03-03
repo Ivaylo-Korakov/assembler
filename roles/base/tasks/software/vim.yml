@@ -8,5 +8,5 @@
     src: files/.vimrc
     dest: ~/.vimrc
     owner: ivo
-    group: users
+    group: ivo
     mode: '0600'

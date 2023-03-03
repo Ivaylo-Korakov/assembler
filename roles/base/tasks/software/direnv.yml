@@ -8,5 +8,5 @@
     src: files/.direnvrc
     dest: ~/.direnvrc
     owner: ivo
-    group: users
+    group: ivo
     mode: '0600'
