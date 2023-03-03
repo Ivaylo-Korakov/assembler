@@ -3,15 +3,15 @@
 - import_tasks: gnome/appearance.yml
 
 # Install software
-# - import_tasks: software/pip3.yml
-# - import_tasks: software/curl.yml
-# - import_tasks: software/ansible.yml
-# - import_tasks: software/vim.yml
-# - import_tasks: software/htop.yml
-# - import_tasks: software/tig.yml
-# - import_tasks: software/direnv.yml
-# - import_tasks: software/node_npm_yarn.yml
-# - import_tasks: software/virtualenv.yml
+- import_tasks: software/pip3.yml
+- import_tasks: software/curl.yml
+- import_tasks: software/ansible.yml
+- import_tasks: software/vim.yml
+- import_tasks: software/htop.yml
+- import_tasks: software/tig.yml
+- import_tasks: software/direnv.yml
+- import_tasks: software/node_npm_yarn.yml
+- import_tasks: software/virtualenv.yml
 - import_tasks: software/zsh.yml
 
 # NOT FOR NOW - I DON"T REALLY LIKE IT
