@@ -1,0 +1,13 @@
+- name: base | software | fzf
+  package:
+    name: fzf
+
+- name: base | software | fzf | download git repo 
+  ignore_errors: yes
+  become_user: ivo
+  ansible.builtin.shell: sh -c "$(git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf)"
+
+- name: base | software | fzf | run install script
+  ignore_errors: yes
+  become_user: ivo
+  ansible.builtin.shell: sh -c "$(~/.fzf/install --all)"

@@ -1,6 +1,6 @@
 
 run:
-	sudo apt -y install ansible
+	sudo apt -y install ansible make
 	ansible-playbook --connection=local local.yml
 
 pull:
