@@ -19,6 +19,7 @@
 # - import_tasks: software/pgadmin.yml
 
 - import_tasks: software/guake.yml
+- import_tasks: software/variety.yml
 # - import_tasks: software/snapd.yml
 # - import_tasks: software/authy.yml
 # - import_tasks: software/signal.yml
