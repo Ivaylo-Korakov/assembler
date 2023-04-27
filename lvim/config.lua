@@ -202,8 +202,13 @@ lvim.builtin.which_key.mappings["g"] = vim.tbl_extend("force", orignalGitKeybind
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
+
+-- NVIM TREE
+lvim.builtin.nvimtree.setup.view.width = 30
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+lvim.builtin.nvimtree.setup.actions.open_file.resize_window = true
+lvim.builtin.nvimtree.setup.actions.open_file.quit_on_open = true
+-- lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
