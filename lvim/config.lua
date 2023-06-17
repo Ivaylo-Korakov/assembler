@@ -47,6 +47,11 @@ lvim.plugins = {
     cmd = "TroubleToggle",
   },
 
+  -- Golang plugin 
+  {
+    "fatih/vim-go",
+  },
+
   -- Vim Fugitive - Git wrapper
   -----------------------------------------------------------------------------------------------------------
   { "tpope/vim-fugitive" },
@@ -145,6 +150,8 @@ lvim.keys.normal_mode["<TAB>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-TAB>"] = ":BufferLineCyclePrev<CR>"
 -- search current buffer fuzzy inside of telescope
 lvim.keys.normal_mode["<C-f>"] = ":Telescope current_buffer_fuzzy_find<CR>"
+-- comment line
+lvim.keys.normal_mode["<C-/>"] = "<Plug>(comment_toggle_linewise_visual)"
 
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
@@ -175,18 +182,18 @@ lvim.keys.normal_mode["<C-f>"] = ":Telescope current_buffer_fuzzy_find<CR>"
 
 -- Use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
-lvim.builtin.which_key.mappings["t"] = {
-  name = "+Trouble",
-  r = { "<cmd>Trouble lsp_references<cr>", "References" },
-  f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-  d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
-  q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
-  w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
-}
+-- lvim.builtin.which_key.mappings["t"] = {
+--   name = "+Trouble",
+--   r = { "<cmd>Trouble lsp_references<cr>", "References" },
+--   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
+--   d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
+--   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+--   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+--   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
+-- }
 
 -- Undo
-lvim.builtin.which_key.mappings["u"] = { "<cmd>UndotreeToggle<CR>", "Undotree" }
+-- lvim.builtin.which_key.mappings["u"] = { "<cmd>UndotreeToggle<CR>", "Undotree" }
 
 -- Git
 local orignalGitKeybinds = lvim.builtin.which_key.mappings["g"]
@@ -197,6 +204,20 @@ local customKeyBinds = {
 }
 lvim.builtin.which_key.mappings["g"] = vim.tbl_extend("force", orignalGitKeybinds, customKeyBinds)
 
+-- Terminal shortcuts
+lvim.builtin.which_key.mappings["t"] = {
+  name = "+Terminals",
+  u = { "<cmd>UndotreeToggle<CR>", "Undotree" },
+  t = { "<cmd>ToggleTerm direction=horizontal<cr>", "Horizontal" },
+  f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
+  v = { "<cmd>ToggleTerm direction=vertical<cr>", "Vertical" },
+  h = { "<cmd>ToggleTerm direction=horizontal<cr>", "Horizontal" },
+}
+-- lvim.keys.normal_mode["<C-1>"] = ":ToggleTerm direction=float<CR>"
+-- lvim.keys.normal_mode["<C-2>"] = ":ToggleTerm direction=horizontal size=40<CR>"
+-- lvim.keys.normal_mode["<C-3>"] = ":ToggleTerm direction=vertical size=75<CR>"
+-- lvim.keys.normal_mode["<C-/>"] = ":ToggleTerm direction=horizontal<CR>"
+
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
@@ -204,10 +225,10 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 
 -- NVIM TREE
-lvim.builtin.nvimtree.setup.view.width = 30
+lvim.builtin.nvimtree.setup.view.width = 35
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.actions.open_file.resize_window = true
-lvim.builtin.nvimtree.setup.actions.open_file.quit_on_open = true
+-- lvim.builtin.nvimtree.setup.actions.open_file.quit_on_open = true
 -- lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
 -- if you don't want all the parsers change this to a table of the ones you want
