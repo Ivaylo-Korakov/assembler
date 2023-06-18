@@ -76,6 +76,15 @@ if string.match(string.lower(get_application_name()), "notion") then
   focus_window();
 end
 
+-- Portmaster - move to workspace 4
+if string.match(string.lower(get_application_name()), "portmaster") then
+  unmaximize();
+  set_window_geometry(2561, 0, 1000, 1000);
+  set_window_workspace(4);
+  maximize();
+  focus_window();
+end
+
 -- Edge - move to workspace 4
 if string.match(string.lower(get_application_name()), "edge") then
   unmaximize();
