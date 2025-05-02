@@ -1,0 +1,8 @@
+[2m2025-02-04T16:44:19.653562Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Another instance of the application is already running.
+[2m2025-03-11T14:39:21.834880Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Access is denied. (0x80070005)
+[2m2025-03-12T17:59:39.926284Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Access is denied. (0x80070005)
+[2m2025-03-24T11:38:39.423923Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Access is denied. (0x80070005)
+[2m2025-04-11T18:39:03.176690Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Access is denied. (0x80070005)
+[2m2025-05-02T10:55:47.737590Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m keybindings[24].commands: unrecognized subcommand
+ at line 276 column 15
+[2m2025-05-02T10:57:30.771389Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Another instance of the application is already running.
