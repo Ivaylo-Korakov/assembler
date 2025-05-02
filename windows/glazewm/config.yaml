@@ -275,7 +275,7 @@ keybindings:
 
   # Launch CMD terminal. Alternatively, use `shell-exec wt` or
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
-  # Terminal and Git Bash respectively.
+  # Terminal and Git Bash respectively. --hide-window
   - commands: ['shell-exec --hide-window %UserProfile%/.glzr/glazewm/switch-terminal-ws.bat']
     bindings: ['alt+`']
 
