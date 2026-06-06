@@ -16,7 +16,7 @@ general:
 
   # Whether to switch back and forth between the previously focused
   # workspace when focusing the current workspace.
-  toggle_workspace_on_refocus: false
+  toggle_workspace_on_refocus: true
 
   cursor_jump:
     # Whether to automatically move the cursor on the specified trigger.
@@ -125,38 +125,72 @@ workspaces:
   - name: '1'
     display_name: "MAIN"
     keep_alive: true
-    bind_to_monitor: 0
+    bind_to_monitor: 1
   - name: '2'
-    display_name: "SOCIAL"
+    display_name: "CODE"
     keep_alive: true
-    bind_to_monitor: 0
+    bind_to_monitor: 1
   - name: '3'
     display_name: "WORK"
     keep_alive: true
-    bind_to_monitor: 0
+    bind_to_monitor: 1
   - name: '4'
-    display_name: "TRADE"
+    display_name: "SOCIAL"
     keep_alive: true
-    bind_to_monitor: 0
+    bind_to_monitor: 1
   - name: '5'
     display_name: "RANDOM"
     keep_alive: true
-    bind_to_monitor: 0
+    bind_to_monitor: 1
   - name: '6'
   - name: '7'
     display_name: "GAME"
     keep_alive: true
-    bind_to_monitor: 0
+    bind_to_monitor: 1
   - name: '8'
     display_name: "3D"
     keep_alive: true
-    bind_to_monitor: 0
+    bind_to_monitor: 1
   - name: '9'
     display_name: "TERMINAL"
     keep_alive: true
-    bind_to_monitor: 0
+    bind_to_monitor: 1
 
 window_rules:
+  # --- Your Custom App Assignments ---
+
+  # Code Workspace -> Matches Cursor and VS Code (both process and title keywords)
+  # - commands: ['move --workspace 2']
+  #   match:
+  #     - window_process: { regex: '(?i)Code|Cursor' }
+  #     - window_title: { regex: '(?i)Visual Studio Code|Cursor' }
+
+  # # Work Workspace -> Matches Unity Editor (checks process name and window title)
+  # - commands: ['move --workspace 3']
+  #   match:
+  #     - window_process: { regex: '(?i)Unity' }
+  #     - window_title: { regex: '(?i)Unity' }
+
+  # # Social Workspace -> Matches Discord
+  # - commands: ['move --workspace 4']
+  #   match:
+  #     - window_process: { regex: '(?i)Discord' }
+
+  # # 3D Workspace -> Matches Blender
+  # - commands: ['move --workspace 8']
+  #   match:
+  #     - window_process: { regex: '(?i)Blender' }
+
+  # # Game Workspace -> Matches the Steam client
+  # - commands: ['move --workspace 7']
+  #   match:
+  #     - window_process: { regex: '(?i)steam' }
+
+  # # Terminal Workspace -> Matches Windows Terminal, Git Bash, CMD, and PowerShell
+  # - commands: ['move --workspace 9']
+  #   match:
+  #     - window_process: { regex: '(?i)WindowsTerminal|bash|cmd|powershell|pwsh' }
+
   - commands: ['ignore']
     match:
       # Ignores any Zebar windows.
@@ -189,6 +223,10 @@ binding_modes:
       # Press enter/escape to return to default keybindings.
       - commands: ['wm-disable-binding-mode --name resize']
         bindings: ['escape', 'enter']
+  # - name: 'terminal_mode'
+  #   keybindings:
+  #     - commands: ['focus --recent-workspace']
+  #       bindings: ['alt+`']
 
 keybindings:
   # Shift focus in a given direction.
@@ -276,8 +314,8 @@ keybindings:
   # Launch CMD terminal. Alternatively, use `shell-exec wt` or
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
   # Terminal and Git Bash respectively. --hide-window
-  - commands: ['shell-exec --hide-window %UserProfile%/.glzr/glazewm/switch-terminal-ws.bat']
-    bindings: ['alt+`']
+  # - commands: ['shell-exec --hide-window %UserProfile%/.glzr/glazewm/switch-terminal-ws.bat']
+  #   bindings: ['alt+`']
 
   # Focus the next/previous active workspace defined in `workspaces` config.
   - commands: ['focus --next-active-workspace']
@@ -307,7 +345,7 @@ keybindings:
   - commands: ['focus --workspace 8']
     bindings: ['alt+F2']
   - commands: ['focus --workspace 9']
-    bindings: ['alt+9']
+    bindings: ['alt+`']
 
   # Move the focused window's parent workspace to a monitor in a given
   # direction.
