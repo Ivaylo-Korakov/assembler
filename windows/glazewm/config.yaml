@@ -16,7 +16,7 @@ general:
 
   # Whether to switch back and forth between the previously focused
   # workspace when focusing the current workspace.
-  toggle_workspace_on_refocus: true
+  toggle_workspace_on_refocus: false
 
   cursor_jump:
     # Whether to automatically move the cursor on the specified trigger.
@@ -100,7 +100,7 @@ window_effects:
 window_behavior:
   # New windows are created in this state whenever possible.
   # Allowed values: 'tiling', 'floating'.
-  initial_state: 'tiling'
+  initial_state: 'floating'
 
   # Sets the default options for when a new window is created. This also
   # changes the defaults for when the state change commands, like
@@ -223,6 +223,30 @@ binding_modes:
       # Press enter/escape to return to default keybindings.
       - commands: ['wm-disable-binding-mode --name resize']
         bindings: ['escape', 'enter']
+# --- New Terminal Toggle Mode ---
+  - name: 'terminal_toggle'
+    keybindings:
+      # If you press alt+` again while this mode is active, it sends you back and disarms the mode
+      - commands: ['focus --recent-workspace', 'wm-disable-binding-mode --name terminal_toggle']
+        bindings: ['alt+`']
+
+      # CRITICAL: If you use ANY other workspace shortcut to leave, it automatically clears the mode
+      - commands: ['focus --workspace 1', 'wm-disable-binding-mode --name terminal_toggle']
+        bindings: ['alt+1']
+      - commands: ['focus --workspace 2', 'wm-disable-binding-mode --name terminal_toggle']
+        bindings: ['alt+2']
+      - commands: ['focus --workspace 3', 'wm-disable-binding-mode --name terminal_toggle']
+        bindings: ['alt+3']
+      - commands: ['focus --workspace 4', 'wm-disable-binding-mode --name terminal_toggle']
+        bindings: ['alt+4']
+      - commands: ['focus --workspace 5', 'wm-disable-binding-mode --name terminal_toggle']
+        bindings: ['alt+5']
+      - commands: ['focus --workspace 6', 'wm-disable-binding-mode --name terminal_toggle']
+        bindings: ['alt+6']
+      - commands: ['focus --workspace 7', 'wm-disable-binding-mode --name terminal_toggle']
+        bindings: ['alt+F1']
+      - commands: ['focus --workspace 8', 'wm-disable-binding-mode --name terminal_toggle']
+        bindings: ['alt+F2']
   # - name: 'terminal_mode'
   #   keybindings:
   #     - commands: ['focus --recent-workspace']
@@ -344,7 +368,7 @@ keybindings:
     bindings: ['alt+F1']
   - commands: ['focus --workspace 8']
     bindings: ['alt+F2']
-  - commands: ['focus --workspace 9']
+  - commands: ['focus --workspace 9', 'wm-enable-binding-mode --name terminal_toggle']
     bindings: ['alt+`']
 
   # Move the focused window's parent workspace to a monitor in a given
